@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /auth/
+Disallow: /settings
+Disallow: /my-tasks
+Disallow: /team
+Disallow: /projects
+Disallow: /reports
+
+Sitemap: https://anvaya-swarnjeets-projects.vercel.app/sitemap.xml

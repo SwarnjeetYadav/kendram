@@ -1,0 +1,263 @@
+openapi: 3.1.0
+info:
+  title: Kendram REST API
+  version: 1.0.0
+  description: |
+    OpenAPI contract for core Kendram health, authentication, project and task endpoints.
+    Verify route/controller behavior against this document when APIs change.
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Local Docker Compose API
+security:
+  - bearerAuth: []
+paths:
+  /health:
+    get:
+      security: []
+      summary: Health check
+      responses:
+        '200':
+          description: Service health
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessEnvelope'
+  /auth/login:
+    post:
+      security: []
+      summary: Sign in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string, minLength: 8 }
+      responses:
+        '200': { description: Authenticated; token returned in data }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { description: Invalid credentials or unverified account }
+  /auth/register:
+    post:
+      security: []
+      summary: Register account and request email verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, password]
+              properties:
+                name: { type: string, minLength: 1, maxLength: 80 }
+                email: { type: string, format: email }
+                password: { type: string, minLength: 8 }
+      responses:
+        '201': { description: Account created; verification email requested }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '409': { description: Email already registered }
+  /tasks/project/{projectId}:
+    parameters:
+      - $ref: '#/components/parameters/ProjectId'
+    get:
+      summary: List project tasks with filtering and pagination
+      parameters:
+        - in: query
+          name: page
+          schema: { type: integer, minimum: 1, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 100, default: 100 }
+        - in: query
+          name: status
+          schema: { type: string, enum: [TODO, IN_PROGRESS, REVIEW, BLOCKED, COMPLETED] }
+        - in: query
+          name: priority
+          schema: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+        - in: query
+          name: assigneeId
+          description: ObjectId of assignee, or the literal unassigned
+          schema: { type: string }
+        - in: query
+          name: label
+          schema: { type: string, minLength: 1, maxLength: 32 }
+        - in: query
+          name: dueDateFrom
+          schema: { type: string, format: date-time }
+        - in: query
+          name: dueDateTo
+          schema: { type: string, format: date-time }
+        - in: query
+          name: overdue
+          schema: { type: boolean }
+      responses:
+        '200':
+          description: Task array and pagination metadata
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [success, data, meta]
+                properties:
+                  success: { type: boolean, const: true }
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Task' }
+                  meta:
+                    type: object
+                    properties:
+                      pagination: { $ref: '#/components/schemas/Pagination' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { description: Caller is not a project member }
+    post:
+      summary: Create a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title]
+              properties:
+                title: { type: string, minLength: 1, maxLength: 180 }
+                description: { type: string, maxLength: 2000 }
+                priority: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+                assigneeId: { type: [string, 'null'] }
+                dueDate: { type: [string, 'null'], format: date-time }
+                estimateMinutes: { type: [integer, 'null'], minimum: 5, maximum: 43200 }
+                labels:
+                  type: array
+                  maxItems: 20
+                  uniqueItems: true
+                  items: { type: string, minLength: 1, maxLength: 32 }
+      responses:
+        '201':
+          description: Task created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean, const: true }
+                  data: { $ref: '#/components/schemas/Task' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '403': { description: Caller has read-only access or is not a project member }
+  /tasks/{taskId}:
+    parameters:
+      - $ref: '#/components/parameters/TaskId'
+    patch:
+      summary: Update a task with optimistic concurrency protection
+      description: |
+        Send the task version last observed by the client. A write based on an obsolete
+        version returns 409 Conflict. The API also uses compare-and-swap for concurrent writes.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                version: { type: integer, minimum: 1 }
+                title: { type: string, minLength: 1, maxLength: 180 }
+                description: { type: string, maxLength: 2000 }
+                status: { type: string, enum: [TODO, IN_PROGRESS, REVIEW, BLOCKED, COMPLETED] }
+                priority: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+                assigneeId: { type: [string, 'null'] }
+                dueDate: { type: [string, 'null'], format: date-time }
+                estimateMinutes: { type: [integer, 'null'], minimum: 5, maximum: 43200 }
+                labels:
+                  type: array
+                  maxItems: 20
+                  uniqueItems: true
+                  items: { type: string, minLength: 1, maxLength: 32 }
+      responses:
+        '200': { description: Updated task, including incremented version }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { description: Caller cannot edit the task }
+        '404': { description: Task not found }
+        '409': { description: Task version is stale or task has unresolved blockers }
+  /tasks/{taskId}/activity:
+    parameters:
+      - $ref: '#/components/parameters/TaskId'
+    get:
+      summary: Get task activity and comments
+      responses:
+        '200': { description: Chronological task activity and comment events }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { description: Caller has no access to the task }
+        '404': { description: Task not found }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ProjectId:
+      in: path
+      name: projectId
+      required: true
+      schema: { type: string, pattern: '^[a-fA-F0-9]{24}$' }
+    TaskId:
+      in: path
+      name: taskId
+      required: true
+      schema: { type: string, pattern: '^[a-fA-F0-9]{24}$' }
+  schemas:
+    SuccessEnvelope:
+      type: object
+      properties:
+        success: { type: boolean }
+        data: { type: object }
+    Task:
+      type: object
+      properties:
+        _id: { type: string }
+        projectId: { type: string }
+        title: { type: string }
+        description: { type: string }
+        status: { type: string, enum: [TODO, IN_PROGRESS, REVIEW, BLOCKED, COMPLETED] }
+        priority: { type: string, enum: [LOW, MEDIUM, HIGH, CRITICAL] }
+        assigneeId: { type: [string, 'null'] }
+        labels:
+          type: array
+          items: { type: string }
+        version: { type: integer, minimum: 1 }
+        dueDate: { type: [string, 'null'], format: date-time }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    Pagination:
+      type: object
+      required: [page, limit, total, pages, hasNextPage, hasPreviousPage]
+      properties:
+        page: { type: integer }
+        limit: { type: integer }
+        total: { type: integer }
+        pages: { type: integer }
+        hasNextPage: { type: boolean }
+        hasPreviousPage: { type: boolean }
+  responses:
+    BadRequest:
+      description: Invalid request or query parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Authentication is missing or invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ErrorEnvelope:
+      type: object
+      required: [success, message]
+      properties:
+        success: { type: boolean, const: false }
+        message: { type: string }
+        details: {}

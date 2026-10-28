@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff9f2"/><stop offset="1" stop-color="#f0ded0"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0a178"/><stop offset="1" stop-color="#bd462d"/></linearGradient></defs>
+  <rect width="1200" height="630" rx="28" fill="url(#bg)"/>
+  <circle cx="1050" cy="100" r="220" fill="#e6b39a" opacity=".22"/><circle cx="110" cy="570" r="180" fill="#d77c5c" opacity=".12"/>
+  <rect x="75" y="74" width="68" height="68" rx="20" fill="#172231"/>
+  <path d="M108 86c-13 8-18 18-16 28 1 7 8 13 17 15-3-12-2-25-1-43Z" fill="#f4b087"/><path d="M114 89c12 7 18 17 16 27-1 7-8 12-16 14 2-12 1-25 0-41Z" fill="#c34d32"/><circle cx="110" cy="84" r="5" fill="#f8e4d5"/>
+  <text x="170" y="121" font-family="Manrope, Arial, sans-serif" font-size="44" font-weight="800" fill="#172231">Kendram</text>
+  <text x="78" y="275" font-family="Manrope, Arial, sans-serif" font-size="65" font-weight="800" letter-spacing="-2" fill="#172231">Unite people.</text>
+  <text x="78" y="350" font-family="Manrope, Arial, sans-serif" font-size="65" font-weight="800" letter-spacing="-2" fill="#172231">Organize work.</text>
+  <text x="78" y="425" font-family="Manrope, Arial, sans-serif" font-size="65" font-weight="800" letter-spacing="-2" fill="#bd462d">Drive progress.</text>
+  <text x="82" y="493" font-family="DM Sans, Arial" font-size="24" fill="#6e737b">Smart task assignment · Projects · Team chat · Insights</text>
+  <rect x="850" y="250" width="275" height="215" rx="22" fill="#fffdfa" stroke="#ead8ca" stroke-width="2"/>
+  <rect x="880" y="282" width="46" height="46" rx="13" fill="#fae7dc"/><path d="M894 305h18m-9-9v18" stroke="#bd462d" stroke-width="3" stroke-linecap="round"/>
+  <rect x="943" y="286" width="140" height="12" rx="6" fill="#e6ddd5"/><rect x="943" y="309" width="108" height="8" rx="4" fill="#f0e7df"/>
+  <rect x="880" y="354" width="215" height="13" rx="6" fill="#eee4da"/><rect x="880" y="354" width="158" height="13" rx="6" fill="#c34d32"/>
+  <circle cx="892" cy="408" r="13" fill="#f2c6ad"/><circle cx="922" cy="408" r="13" fill="#e6a58a"/><circle cx="952" cy="408" r="13" fill="#d1d9e4"/>
+  <rect x="1000" y="397" width="95" height="22" rx="11" fill="#e8f6f0"/>
+  <text x="1047" y="412" text-anchor="middle" font-family="DM Sans, Arial" font-size="11" font-weight="700" fill="#238a70">ON TRACK</text>
+</svg>

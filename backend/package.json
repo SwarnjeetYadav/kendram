@@ -1,0 +1,39 @@
+{
+  "name": "anvaya-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "seed:demo": "node src/scripts/seedDemo.js",
+    "test": "vitest run src/tests/taskRules.test.js src/tests/assignment.service.test.js src/tests/unit/dependencyRules.test.js src/tests/unit/chatRealtime.service.test.js",
+    "test:watch": "vitest",
+    "test:integration": "vitest run src/tests/integration --exclude src/tests/integration/postgresTaskHttp.integration.test.js",
+    "test:coverage": "vitest run --coverage",
+    "db:migrate:postgres": "node src/scripts/migratePostgres.js",
+    "db:seed:postgres": "node src/scripts/seedPostgres.js",
+    "test:postgres": "node src/scripts/testPostgresImportSafety.js && node src/scripts/testPostgresSchema.js && node src/scripts/testPostgresTaskService.js && vitest run src/tests/integration/postgresAuthHttp.integration.test.js src/tests/integration/postgresTaskHttp.integration.test.js src/tests/integration/postgresProjectHttp.integration.test.js src/tests/integration/postgresProjectMappingHttp.integration.test.js",
+    "db:preflight:postgres": "node src/scripts/preflightPostgresMigration.js",
+    "db:migrate:postgres:users": "node src/scripts/migratePostgresUsers.js",
+    "db:migrate:postgres:entities": "node src/scripts/migratePostgresEntities.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.0",
+    "pg": "^8.16.3",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "socket.io-client": "^4.8.4",
+    "supertest": "^7.3.1",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,11 @@
+# Week 4 Submission Description
+
+The Week 4 task focused on creating a comprehensive Software Testing and Quality Assurance Plan for the TeamFlow project. The objective was to define a practical approach for validating functionality, integration behaviour, performance, security, usability, regression stability, and overall release readiness. The plan was based on the requirements and architecture established during Weeks 1 and 2 and the feature prototype work completed in Week 3.
+
+The document begins with QA objectives and quality goals covering functional correctness, reliability, performance, security, usability, and maintainability. The testing scope includes authentication, role based authorization, user management, project management, task management, collaboration, dashboards, notifications, reports, API validation, database interaction, error handling, performance, security, usability, compatibility, and regression.
+
+A layered testing strategy was defined covering requirements review, unit testing, integration testing, system testing, performance testing, security testing, usability testing, user acceptance testing, and regression testing. Both manual and automated testing are included, with automation prioritized for repeatable unit, API, and regression scenarios. A risk based testing approach was also documented so that high impact areas such as authentication, authorization, task creation, assignment, data integrity, and dashboard correctness receive stronger attention.
+
+The plan contains a detailed functional coverage matrix and sample test cases covering valid and invalid login, protected routes, role restrictions, project validation, task creation, invalid assignments, smart assignment, task status, comments, dashboard data, security validation, performance, usability, and regression. Proposed performance targets, security checks, usability success criteria, defect severity levels, testing schedule, QA metrics, traceability, and entry and exit criteria were also defined.
+
+Because TeamFlow is a hypothetical project, all numerical metrics are explicitly treated as proposed planning benchmarks rather than measured results. The Week 4 deliverable therefore provides a practical QA baseline that can guide actual testing when implementation becomes available.

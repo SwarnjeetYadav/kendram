@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Kendram design system — warm, calm, team-first project management */
+:root{
+  --bg:#f7f2ec;--surface:#fffdfa;--line:#ece2d8;--text:#17202d;--muted:#747982;--muted-2:#8a8d94;
+  --sidebar:#151e2c;--sidebar-soft:#202b3b;--primary:#c34d32;--primary-dark:#a83d27;--blue:#4388d9;--green:#2aa887;--amber:#ed9a3b;--rose:#e66d70;
+  --shadow:0 8px 26px rgba(55,38,26,.055);--radius-lg:20px;--radius-md:15px;
+}
+body{font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text)}
+h1,h2,h3,.brand strong,.stat-value{font-family:'Manrope','DM Sans',sans-serif}
+button,input,textarea,select{font-family:inherit}
+.app-shell{background:var(--bg)}
+.sidebar{width:246px;padding:23px 14px 16px;background:linear-gradient(180deg,#172231 0%,#121b29 100%);box-shadow:8px 0 28px rgba(23,30,42,.07)}
+.sidebar-top{padding:0 8px 25px}
+.brand{gap:11px}
+.brand-mark{position:relative;overflow:hidden;width:37px;height:37px;border-radius:12px;background:linear-gradient(140deg,#f3a16d,#c64b32);box-shadow:0 8px 20px rgba(195,77,50,.2);color:#fff;font-size:0}
+.brand-mark:before{content:'';position:absolute;width:11px;height:18px;left:8px;top:10px;background:#fff1e4;border-radius:100% 0 100% 100%;transform:rotate(-26deg)}
+.brand-mark:after{content:'';position:absolute;width:12px;height:20px;right:7px;top:7px;background:#fff;border-radius:100% 100% 100% 0;transform:rotate(27deg);opacity:.94}
+.brand strong{font-size:18px;letter-spacing:-.04em;color:#fff}
+.brand small{font-size:10px;letter-spacing:.02em;color:#aab4c3;margin-top:2px}
+.workspace-switcher{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.08);border-radius:12px;margin-bottom:23px}
+.workspace-logo{background:#fae6d9;color:#b7462e;border-radius:9px}
+.nav-label{color:#8d9aac}
+.nav-item{min-height:41px;border-radius:10px;color:#c1cad5;font-size:12px;gap:10px}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item-active{background:linear-gradient(90deg,rgba(196,78,50,.27),rgba(196,78,50,.11));color:#fff;box-shadow:inset 3px 0 #ed8964}
+.nav-count{background:rgba(255,255,255,.1)}
+.sidebar-tip{background:linear-gradient(145deg,rgba(195,77,50,.16),rgba(255,255,255,.025));border-color:rgba(255,255,255,.08)}
+.tip-icon{background:rgba(222,113,79,.18);color:#f4a17e}
+.profile-mini{border-top:1px solid rgba(255,255,255,.08);margin-top:15px;padding:15px 6px 2px}
+.app-main{width:calc(100% - 246px);margin-left:246px}
+.topbar{height:72px;padding:0 30px;background:rgba(255,253,250,.91);border-bottom-color:#eee3d8;backdrop-filter:blur(18px)}
+.breadcrumb strong{color:#1c2633}
+.search-box{border-radius:11px;background:#fffdfa;border-color:#e8ddd2;min-height:39px}
+.search-box:focus-within{border-color:#cf8268;box-shadow:0 0 0 3px rgba(195,77,50,.09)}
+kbd{background:#f8f0e9;border-color:#eadfd5}
+.content{padding:28px 30px 44px;max-width:1560px}
+.page-stack{gap:23px}
+.hero-card{min-height:216px;border-radius:20px;background:radial-gradient(circle at 83% 20%,rgba(225,126,91,.23),transparent 30%),linear-gradient(118deg,#fffaf4 0%,#f3e6da 100%);color:#192332;border:1px solid #ecded1;box-shadow:0 10px 30px rgba(77,50,32,.045);padding:31px 34px}
+.hero-card:before{background:linear-gradient(90deg,rgba(185,91,62,.07) 1px,transparent 1px),linear-gradient(rgba(185,91,62,.07) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to right,rgba(0,0,0,.2),transparent 65%)}
+.hero-kicker,.eyebrow{color:#b74a31;letter-spacing:.1em;font-size:10px}
+.hero-card h1,.page-title-block h1{color:#17202d;font-size:clamp(25px,2.1vw,31px);letter-spacing:-.05em}
+.hero-card p,.page-title-block p{color:#71747c}
+.hero-actions{margin-top:22px}
+.primary-button{background:var(--primary);color:white;box-shadow:0 6px 14px rgba(195,77,50,.14)}
+.primary-button:hover,.login-submit:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.ghost-button{background:#fffaf4;color:#a9432c;border-color:#ead4c6}
+.hero-orbit{opacity:.88}
+.orbit{border-color:rgba(196,78,50,.17)}
+.hero-spark{background:linear-gradient(135deg,#e9926e,#bd462d);box-shadow:0 16px 40px rgba(195,77,50,.2)}
+.stats-grid{gap:14px}
+.stat-card,.panel,.project-card,.workload-card{background:var(--surface);border-color:#eee4da;box-shadow:var(--shadow)}
+.stat-card{min-height:130px;border-radius:15px;padding:17px}
+.stat-icon-violet{background:#fae9df;color:#bd4a31}
+.stat-icon-blue{background:#eaf3ff;color:#4388d9}
+.stat-icon-green{background:#e8f7f0;color:#249e7e}
+.stat-icon-rose{background:#fff0ed;color:#d75b55}
+.stat-value{font-size:27px;color:#182230}
+.section-header h2{font-size:16px;letter-spacing:-.035em}
+.section-header p{font-size:11px;color:#83858b}
+.text-action{color:#b84830;font-size:11px}
+.project-grid{gap:14px}
+.project-card{border-radius:15px;padding:17px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.project-card:hover{border-color:#e3b9a8;box-shadow:0 14px 28px rgba(65,43,30,.08)}
+.project-badge-violet{background:#fae9df;color:#bd4a31}
+.project-badge-blue{background:#eaf3ff;color:#3d7fd0}
+.project-badge-green{background:#e8f7f0;color:#249e7e}
+.project-card-copy h3{font-size:14px}
+.progress-track{background:#f0eae4;height:6px}
+.progress-violet{background:linear-gradient(90deg,#c54f34,#e18c6c)}
+.progress-blue{background:linear-gradient(90deg,#4789d8,#8bb9ef)}
+.progress-green{background:linear-gradient(90deg,#2aa887,#7bd4b7)}
+.panel,.workload-card{border-radius:16px;padding:19px}
+.task-table-wrap,.table-wrap{border-radius:11px;overflow:auto}
+table{border-color:#eee4da}
+th{background:#fbf6f0;color:#777b82}
+td,th{border-bottom-color:#eee4da}
+tr:hover td{background:#fff8f2}
+.badge,.status-badge{border-radius:999px}
+.login-shell{background:radial-gradient(circle at 12% 16%,rgba(231,156,115,.19),transparent 26%),radial-gradient(circle at 90% 80%,rgba(198,80,52,.1),transparent 25%),#f7f2ec}
+.login-card{border:1px solid #eee0d4;border-radius:22px;background:rgba(255,253,250,.95);box-shadow:0 25px 70px rgba(74,48,32,.11)}
+.login-brand .brand-mark{background:linear-gradient(140deg,#f3a16d,#c64b32)}
+.login-brand strong{font-family:'Manrope',sans-serif;letter-spacing:-.04em}
+.login-copy .eyebrow{color:#b84b32}
+.login-copy h1{letter-spacing:-.05em}
+.field input{border-radius:10px;border-color:#e6d9cd;background:#fffdfa}
+.field input:focus{border-color:#c86b50;box-shadow:0 0 0 3px rgba(195,77,50,.09)}
+.login-submit{background:#c34d32;border-radius:10px;transition:transform .18s ease,background .18s ease}
+.auth-switch-button{color:#b7472f}
+.demo-button{border-color:#e8d7ca;background:#fffaf4;border-radius:10px}
+.login-footer{color:#7f7f83}
+.login-footer>span:first-child{color:#b84b32;font-weight:800}
+.not-found-page{background:#f7f2ec;color:#17202d}
+.not-found-page .eyebrow{color:#b84b32}
+.not-found-page h1{font-family:'Manrope',sans-serif}
+.primary-button-dark{background:#172231;color:#fff}
+.modal-backdrop{backdrop-filter:blur(5px);background:rgba(22,29,39,.48)}
+.modal-card,.modal-content{border-radius:18px;border-color:#eadfd5;box-shadow:0 25px 80px rgba(39,28,20,.2)}
+input,textarea,select{accent-color:#c34d32}
+a{color:#b94a31}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(195,77,50,.28);outline-offset:2px}
+.api-banner{border-color:#f0d2c4;background:#fff4ed;color:#a7422c}
+.empty-state{border-color:#e9dcd0;background:#fffaf5;color:#777982}
+.cookie-consent{border-color:#e8d9cc;box-shadow:0 12px 40px rgba(44,31,22,.14)}
+@media(max-width:1100px){
+  .sidebar{width:230px}.app-main{width:calc(100% - 230px);margin-left:230px}
+  .content{padding:24px 22px 36px}.topbar{padding:0 22px}
+  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .sidebar{width:270px;transform:translateX(-105%);transition:transform .24s ease;box-shadow:20px 0 50px rgba(10,15,25,.22)}
+  .sidebar.sidebar-open{transform:translateX(0)}
+  .app-main{width:100%;margin-left:0}
+  .topbar{height:64px;padding:0 15px}.content{padding:18px 14px 30px}
+  .hero-card{padding:25px 22px;min-height:210px}.hero-card h1{font-size:25px}.hero-orbit{right:-150px;opacity:.35}
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .stat-card{min-height:116px;padding:13px}.stat-value{font-size:24px}
+  .project-grid{grid-template-columns:1fr}
+  .content-grid,.content-grid-main,.content-grid-bottom{grid-template-columns:1fr}
+  .panel,.workload-card{padding:15px}
+  .section-header{align-items:start}
+  .search-box{width:min(44vw,230px)}
+  .login-card{width:min(100% - 28px,460px);padding:25px 22px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Reference-matched Kendram sidebar */
+.kendram-sidebar{width:240px;padding:22px 14px 15px;gap:0;background:linear-gradient(160deg,#172130 0%,#111a28 100%);border:1px solid rgba(255,255,255,.075);border-left:0;box-shadow:5px 0 22px rgba(16,24,38,.08)}
+.kendram-sidebar-top{padding:0 10px 27px;min-height:53px;justify-content:flex-start}
+.kendram-brand{gap:11px;min-width:0}
+.kendram-brand-mark{width:32px;height:32px;min-width:32px;border-radius:50%;box-shadow:none;background:transparent;overflow:visible}
+.kendram-brand-mark:before{width:15px;height:19px;left:2px;top:1px;border-radius:100% 100% 100% 0;background:#ef7658;transform:rotate(-36deg)}
+.kendram-brand-mark:after{width:14px;height:18px;right:0;top:10px;border-radius:100% 0 100% 100%;background:#e9a05f;transform:rotate(35deg)}
+.kendram-brand-mark span{position:absolute;z-index:1;left:9px;top:16px;width:13px;height:12px;background:#d9573f;border-radius:100% 100% 65% 65%;transform:rotate(2deg)}
+.kendram-brand-name{font-family:'Manrope',sans-serif;font-size:23px;font-weight:800;letter-spacing:-.055em;color:#fff;white-space:nowrap}
+.kendram-sidebar .sidebar-close{display:none}
+.kendram-nav{display:flex;flex-direction:column;gap:5px}
+.kendram-nav .nav-item{width:100%;min-height:43px;padding:0 12px;display:flex;align-items:center;gap:12px;border:0;border-radius:10px;color:#e0e4ec;background:transparent;font-size:14px;font-weight:500;text-align:left;transition:background .16s ease,color .16s ease,transform .16s ease}
+.kendram-nav .nav-item:hover{background:rgba(255,255,255,.075);color:#fff}
+.kendram-nav .nav-item-active{background:linear-gradient(105deg,#454b58,#3a414f);color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.kendram-nav .nav-icon{width:20px;height:20px;display:grid;place-items:center;flex:0 0 20px;color:currentColor}
+.kendram-nav .nav-icon svg{width:19px;height:19px}
+.kendram-nav-label{flex:1}
+.kendram-chat-badge{display:grid;place-items:center;min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:#f45b52;color:#fff;font-size:12px;font-weight:700;line-height:1;box-shadow:0 2px 6px rgba(244,91,82,.2)}
+.kendram-sidebar-footer{display:flex;align-items:center;gap:10px;margin-top:auto;padding:14px 6px 1px;border-top:1px solid rgba(255,255,255,.08)}
+.kendram-profile-copy{min-width:0;display:flex;flex:1;flex-direction:column;gap:3px}
+.kendram-profile-copy strong{overflow:hidden;color:#f6f7fa;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+.kendram-profile-copy small{color:#aeb7c5;font-size:10px}
+.kendram-profile-settings{display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:8px;background:transparent;color:#b8c1ce}
+.kendram-profile-settings:hover{background:rgba(255,255,255,.08);color:#fff}
+.app-main{width:calc(100% - 240px);margin-left:240px}
+@media(max-width:1100px){.kendram-sidebar{width:230px}.app-main{width:calc(100% - 230px);margin-left:230px}}
+@media(max-width:760px){.kendram-sidebar{width:270px;transform:translateX(-105%);transition:transform .24s ease;box-shadow:20px 0 50px rgba(10,15,25,.22);border-radius:0}.kendram-sidebar.sidebar-open{transform:translateX(0)}.app-main{width:100%;margin-left:0}.kendram-sidebar .sidebar-close{display:grid}}
+
+/* Kendram team chat refinement */
+.team-chat-drawer{width:min(440px,calc(100vw - 28px));height:min(690px,calc(100dvh - 36px));right:22px;bottom:18px;border:1px solid rgba(36,48,65,.12);border-radius:20px;background:#fffdfa;box-shadow:0 24px 70px rgba(20,28,40,.24);overflow:hidden}
+.team-chat-drawer-header{padding:17px 18px 14px;background:linear-gradient(135deg,#fffdfa,#f8f1e9);border-bottom:1px solid #eee4db}
+.team-chat-drawer-title strong{font-size:15px;letter-spacing:-.02em}
+.team-chat-drawer-title span{font-size:12px;color:#85818a}
+.team-chat-drawer-icon{width:37px;height:37px;border-radius:12px;background:#f9e4dc;color:#b9472e}
+.team-chat-icon-button{width:34px;height:34px;border-radius:10px;color:#626977;transition:background .15s ease,color .15s ease,transform .15s ease}
+.team-chat-icon-button:hover{background:#f0e8e0;color:#a9422c}
+.team-chat-drawer-meta{padding:10px 18px;background:#fffdfa;border-bottom:1px solid #f0e8e1}
+.team-chat-drawer-meta>div{gap:8px}
+.team-chat-drawer-meta span{font-size:11px}
+.team-chat-drawer-meta small{font-size:11px;color:#8b8b92}
+.team-chat-drawer-messages{padding:17px 16px;gap:15px;background:radial-gradient(ellipse at top right,rgba(249,230,218,.34),transparent 45%),#fffdfa}
+.team-chat-message{align-items:flex-start;gap:9px}
+.team-chat-message-body{min-width:0;max-width:calc(100% - 38px);padding:0}
+.team-chat-message-head{gap:9px;margin-bottom:5px}
+.team-chat-message-head strong{font-size:12px;color:#293242}
+.team-chat-message-head span{font-size:10px;color:#9a9aa1}
+.team-chat-message-body>p{display:inline-block;max-width:100%;margin:0;padding:10px 12px;border:1px solid #f0e8e1;border-radius:4px 14px 14px 14px;background:#f7f2ed;color:#343b48;font-size:13px;line-height:1.55;overflow-wrap:anywhere;white-space:pre-wrap}
+.team-chat-message-self .team-chat-message-body>p{border-color:#f4d9d0;border-radius:14px 4px 14px 14px;background:#fbe8e2;color:#723e32}
+.chat-message-actions{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:6px;opacity:.78}
+.chat-message-actions button{padding:4px 7px;border:1px solid transparent;border-radius:8px;background:transparent;color:#7c7f87;font-size:11px}
+.chat-message-actions button:hover{border-color:#eaded4;background:#fff;color:#b34830}
+.chat-reply-preview{border-left:2px solid #c34d32;background:#f8f1ea;border-radius:5px;padding:7px 9px;margin-bottom:6px}
+.team-chat-searchbar{display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:1px solid #eee4db;background:#fff}
+.team-chat-searchbar>svg{color:#8b8e96;flex:0 0 auto}
+.team-chat-searchbar input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#242d3b;font-size:13px}
+.team-chat-searchbar button{display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:8px;background:#f6f0e9;color:#6c7078}
+.team-chat-notice{position:absolute;bottom:82px;left:50%;transform:translateX(-50%);z-index:4;padding:7px 12px;border:1px solid #d9eadf;border-radius:999px;background:#f0faf3;color:#267347;font-size:11px;box-shadow:0 6px 18px rgba(20,40,25,.1);white-space:nowrap}
+.team-chat-drawer-form{gap:9px;padding:12px 14px;background:#fffdfa;border-top:1px solid #eee4db}
+.team-chat-drawer-form input{min-height:42px;border:1px solid #e8ded5;border-radius:12px;background:#fff;color:#273142;padding:0 13px;font-size:13px}
+.team-chat-drawer-form input:focus{border-color:#d17a62;outline:3px solid rgba(195,77,50,.1)}
+.team-chat-send-button{width:43px;height:42px;flex:0 0 43px;border-radius:12px;background:#b9472e;box-shadow:0 4px 10px rgba(185,71,46,.18)}
+.team-chat-send-button:hover:not(:disabled){background:#a63c27;transform:translateY(-1px)}
+.team-chat-drawer-footer{padding:0 15px 10px;background:#fffdfa;color:#98949a;font-size:10px}
+.chat-mention-menu{max-height:180px;overflow:auto;border:1px solid #eaded4;border-radius:12px;background:#fffdfa;box-shadow:0 10px 24px rgba(25,32,42,.1)}
+@media(max-width:600px){.team-chat-drawer{width:100vw;height:100dvh;max-height:100dvh;right:0;bottom:0;border-radius:0;border:0}.team-chat-drawer-fullscreen{inset:0}.team-chat-drawer-header{padding-top:max(14px,env(safe-area-inset-top))}.team-chat-drawer-form{padding-bottom:max(12px,env(safe-area-inset-bottom))}.team-chat-message-body{max-width:calc(100% - 34px)}}
+
+/* Kendram account profile settings */
+.kendram-profile-panel{padding:24px;background:#fffdfa;border:1px solid #eee4db;border-radius:18px}
+.kendram-profile-form{display:flex;flex-direction:column;gap:18px;margin-top:20px}
+.kendram-profile-identity{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #eee4db;border-radius:14px;background:linear-gradient(120deg,#fffaf5,#f8f0e8)}
+.kendram-profile-avatar{width:68px;height:68px;flex:0 0 68px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 3px 12px rgba(30,36,48,.12)}
+.kendram-profile-avatar-fallback{display:grid;place-items:center;background:#f6ded4;color:#a7422c;font-size:21px;font-weight:800}
+.kendram-profile-avatar-copy{display:flex;flex:1;flex-direction:column;gap:5px;min-width:0}
+.kendram-profile-avatar-copy strong{font-size:14px;color:#283142}
+.kendram-profile-avatar-copy span,.kendram-profile-field small{font-size:11px;line-height:1.45;color:#898991}
+.kendram-profile-remove-photo{border:1px solid #eadbd2;border-radius:9px;background:#fffdfa;color:#a7422c;padding:8px 11px;font-size:12px}
+.kendram-profile-fields-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.kendram-profile-field{display:flex;flex-direction:column;gap:7px;min-width:0;color:#313949;font-size:12px;font-weight:700}
+.kendram-profile-field b{color:#b9472e}
+.kendram-profile-field input,.kendram-profile-field select,.kendram-profile-field textarea{width:100%;min-width:0;border:1px solid #e7ddd4;border-radius:10px;background:#fff;color:#293243;padding:11px 12px;font-size:13px;font-weight:500;outline:none;transition:border-color .15s,box-shadow .15s}
+.kendram-profile-field input:focus,.kendram-profile-field select:focus,.kendram-profile-field textarea:focus{border-color:#cf795f;box-shadow:0 0 0 3px rgba(185,71,46,.09)}
+.kendram-profile-field input:disabled{background:#f6f2ee;color:#85858c;cursor:not-allowed}
+.kendram-profile-field textarea{resize:vertical;line-height:1.5}
+.kendram-profile-actions{display:flex;justify-content:flex-end;gap:10px;padding-top:16px;border-top:1px solid #f0e8e1}
+.kendram-profile-actions button{padding:10px 15px;border-radius:10px;font-size:12px;font-weight:700}
+.kendram-profile-reset{border:1px solid #e7ddd4;background:#fffdfa;color:#5e6571}
+.kendram-profile-save{border:1px solid #b9472e;background:#b9472e;color:#fff;box-shadow:0 4px 10px rgba(185,71,46,.15)}
+.kendram-profile-save:hover:not(:disabled){background:#a63c27}.kendram-profile-save:disabled{opacity:.6;cursor:wait}
+.topbar-profile-photo{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid #eaded4}
+@media(max-width:650px){.kendram-profile-panel{padding:17px}.kendram-profile-fields-grid{grid-template-columns:1fr}.kendram-profile-identity{align-items:flex-start;flex-wrap:wrap}.kendram-profile-avatar-copy{min-width:calc(100% - 90px)}.kendram-profile-actions{flex-wrap:wrap}.kendram-profile-actions button{flex:1}}
